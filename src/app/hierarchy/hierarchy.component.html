@@ -1,0 +1,24 @@
+<input type="file" (change)="onFileChange($event)" />
+<!-- <div *ngFor="let row of excelData">
+    <div *ngFor="let cell of row">
+      {{ cell }}
+    </div>
+</div> -->
+<input type="button" (click)="heirarchy()" />
+
+<table *ngIf="excelData.length > 0">
+    <thead>
+      <tr>
+        <th *ngFor="let header of excelData[0] | keyvalue">
+          {{ header.key }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of excelData">
+        <td *ngFor="let cell of row | keyvalue">
+          {{ cell.value }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
