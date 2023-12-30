@@ -47,14 +47,14 @@ export class HierarchyComponent {
   }
 
   convertToObjects(data: any[]): any[] {
-    return data.map((item, index) => ({ id: index + 1, name: item['Guarantor Name'] }));
+    return data.map((item, index) => ({ id: index + 1, name: item['Name'] }));
   }
 
   heirarchy() {
     const json = this.convertToObjects(this.excelData);
     const result = this.convertToObjectsWithHierarchy(json);
     console.log(result);
-    this.excelData=result
+    this.excelData = result
   }
 
   convertToObjectsWithHierarchy(data: any[]): any[] {
@@ -63,6 +63,7 @@ export class HierarchyComponent {
 
     data.forEach(item => {
       const name = item.name;
+      console.log("Name",item.name);
       const spaces = name.match(/^(\s*)/)?.[0].length || 0;
 
       const newItem = { id: item.id, name, parentId: null };

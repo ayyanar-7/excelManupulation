@@ -1,0 +1,35 @@
+<input type="file" (change)="onFileChange($event)" />
+<!-- <input type="button" value="Submit" (click)="hierarchy()" /> -->
+<h1>Excel data</h1>
+<table *ngIf="excelData.length > 0">
+  <tbody>
+    <ng-container *ngFor="let row of excelData">
+      <tr *ngFor="let cell of row">
+        <td>
+          {{ cell.id }}
+          <div [style.paddingLeft.px]="cell.space * 5">
+            {{ cell.name }}
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+<hr>
+<h1>Output</h1>
+<table *ngIf="finalData.length > 0">
+  <thead>
+    <tr>
+      <th *ngFor="let header of result[0] | keyvalue">
+        {{ header.key }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of result">
+      <td *ngFor="let cell of row | keyvalue">
+        {{ cell.value }}
+      </td>
+    </tr>
+  </tbody>
+</table>

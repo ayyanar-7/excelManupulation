@@ -1,0 +1,26 @@
+<div class="container m-5">
+    <h1 class="text-primary text-center">Read excel & show in table</h1>
+    <input type="file" class="form-control w-50" (change)="readExcelFile($event)" >
+
+    <table class="table" *ngIf="users.length>0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile No</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.Id}}</td>
+                <td>{{u.Name}}</td>
+                <td>{{u.Email}}</td>
+                <td>{{u.Mobile}}</td>
+                <td>{{u.State}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
